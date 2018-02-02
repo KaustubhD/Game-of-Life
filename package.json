@@ -1,6 +1,6 @@
 {
   "homepage": "https://kayd33.github.io/Game-of-Life",
-  "name": "game-of-life",
+  "name": "Game-of-Life",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

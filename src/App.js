@@ -29,7 +29,6 @@ class Buttons extends Component{
 
 class Grid extends Component{
   render(){
-    // const width = this.props.colNum * 20;
     let rowArr = [], boxId, boxClass;
     for(let i = 0; i < this.props.rowNum; i++){
       console.log(this.props.gridArr[i]);
@@ -46,7 +45,6 @@ class Grid extends Component{
     );
   }
 }
-
 
 class App extends Component {
   constructor(){
@@ -71,6 +69,7 @@ class App extends Component {
       gridArray: gridCopy
     });
   }
+
   pauseEv = () => {
     clearInterval(this.interval);
   }
@@ -79,9 +78,11 @@ class App extends Component {
     clearInterval(this.interval);
     this.interval = setInterval(this.playFn, this.speed);
   }
+
   populateEv = () => {
     this.populate();
   }
+  
   clearEv = () => {
     this.pauseEv();
     let copy1 = Array(this.rows).fill().map(() => Array(this.cols).fill(false));
@@ -93,7 +94,6 @@ class App extends Component {
 
   playFn = () => {
     let copy1 = this.state.gridArray, count;
-    // let g = this.state.gridArray, g2 = cloneArray(g), count;
     for(let i = 0; i < this.rows; i++){
       for(let j = 0; j < this.cols; j++){
         count = 0;
@@ -106,38 +106,6 @@ class App extends Component {
           count++;
         if(this.state.gridArray[i][j - 1])
           count++;
-
-
-        // if(i > 0){
-        //   if(this.state.gridArray[i - 1][j - 1])
-        //     count++;
-        //   if(this.state.gridArray[i - 1][j])
-        //     count++;
-        //   if(this.state.gridArray[i - 1][j + 1])
-        //     count++;
-        // }
-        // if(i < this.rows - 1){
-        //   if(this.state.gridArray[i + 1][j - 1])
-        //     count++;
-        //     if(this.state.gridArray[i + 1][j])
-        //     count++;
-        //   if(this.state.gridArray[i + 1][j + 1])
-        //     count++;
-        // }
-
-
-
-        // if(i > 0) if(g[i - 1][j]) count++;
-        // if(i > 0 && j > 0) if(g[i - 1][j - 1]) count++;
-        // if(i > 0 && j < this.cols - 1) if(g[i - 1][j - 1]) count++;
-        // if(j < this.cols - 1) if(g[i][j + 1]) count++;
-        // if(j > 0) if(g[i][j - 1]) count++;
-        // if(i < this.rows - 1) if(g[i + 1][j]) count++;
-        // if(i < this.rows - 1 && j > 0) if(g[i + 1][j - 1]) count++;
-        // if(i < this.rows - 1 && this.cols - 1) if(g[i + 1][j + 1]) count++;
-        // if(g[i][j] && (count < 2 || count > 3)) g2[i][j] = false;
-        // if(!g[i][j] && count === 3) g2[i][j] = true;
-
         if(this.state.gridArray[i][j] && (count < 2 || count > 3)) copy1[i][j] = false;
         if(!this.state.gridArray[i][j] && count === 3) copy1[i][j] = true;
       }
@@ -145,7 +113,6 @@ class App extends Component {
     this.setState({
       gens: this.state.gens + 1,
       gridArray: copy1
-      // gridArray: g2
     });
   }
 
@@ -166,7 +133,6 @@ class App extends Component {
   componentDidMount(){
     this.clearEv();
     this.populate();
-    // this.playEv();
   }
 
   render() {
