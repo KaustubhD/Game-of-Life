@@ -4,4 +4,4 @@ You can read about Conway's Game of Life [here](https://wikipedia.org/wiki/Conwa
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-You can check out the working app [here](https://kayd33.github.io/Game-of-Life/)
+You can check out the working app [here](https://kaustubhd.github.io/Game-of-Life/)
